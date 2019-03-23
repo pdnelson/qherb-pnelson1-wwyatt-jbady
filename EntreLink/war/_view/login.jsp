@@ -21,11 +21,8 @@
 			<input type="Submit" name="submitLoginData" value="Log in">
 		</form>
 
-		<c:if test="${! empty emailAsUsername}">
-			<div class="returnData">${emailAsUsername}</div><br>
-		</c:if>
-		<c:if test="${! empty passwordOfuser}">
-			<div class="returnData">${passwordOfUser}</div><br>
+		<c:if test="${! empty loggedInName}">
+				<div class="returnData">Welcome, ${loggedInName}!</div>
 		</c:if>
 
 	</body>
