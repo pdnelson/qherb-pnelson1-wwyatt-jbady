@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
-		System.out.println("Index Servlet: doGet");	
+		System.out.println("Login Servlet: doGet");	
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
@@ -43,24 +43,25 @@ public class LoginServlet extends HttpServlet {
 		
 		// decode POSTed form parameters and dispatch to controller
 		// there was a try block here but I deleted it
-			String email = getStringFromParameter(req.getParameter("emailAsUsername"));
-			String password = getStringFromParameter(req.getParameter("passwordOfUser"));
+			String email = req.getParameter("emailAsUsername");
+			String password = req.getParameter("passwordOfUser");
 			model.setEmail(email);
 			model.setPassword(password);
+			System.out.print(model.getEmail() + model.getPassword());
 
 			// check for errors in the form data before using is in a calculation
 			boolean isUser = controller.verifyUser();
+			System.out.println(isUser);
 			if(!isUser) {
 				errorMessage = "The username or password is incorrect.";
 			}
 			// otherwise, log the user in
 			else {
 				model.setIsLoggedIn(true);
+				req.setAttribute("loggedInName", model.getUserFirstName() + " " + model.getUserLastName());
 			}
 		
 		// add result objects as attributes
-		req.setAttribute("emailAsUsername", req.getParameter("emailAsUsername"));
-		req.setAttribute("passwordOfUser", req.getParameter("passwordOfUser"));
 		// this adds the errorMessage text and the result to the response
 		req.setAttribute("errorMessage", errorMessage);
 		
@@ -68,12 +69,5 @@ public class LoginServlet extends HttpServlet {
 		req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 	}
 
-	// gets double from the request with attribute named s
-	private String getStringFromParameter(String s) {
-		if (s == null || s.equals("")) {
-			return null;
-		} else {
-			return s;
-		}
-	}
+	
 }
