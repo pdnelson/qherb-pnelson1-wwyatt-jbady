@@ -8,10 +8,13 @@ public class LoginController {
 	
 	public void setModel(User model) {
 		this.model = model;
+		this.model.setUserFirstName("John");
+		this.model.setUserLastName("Doe");
 	}
 	
 	public boolean verifyUser() {
-		if(model.getEmail() == "jdoe@ycp.edu" && model.getPassword() == "ILikeRocks") {
+		System.out.println(model.getEmail());
+		if(model.getEmail().equals("jdoe@ycp.edu") && model.getPassword().equals("ILikeRocks")) {
 			return true;
 		}
 	return false;
