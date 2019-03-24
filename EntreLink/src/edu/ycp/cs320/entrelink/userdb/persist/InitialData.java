@@ -21,6 +21,7 @@ public class InitialData {
 		newUser = new User("djhake", "BDConsultant", "Professor", "Hake", "djhake@ycp.edu");
 		userList.add(newUser);
 		newUser = new User("jdoe", "ILikeRocks", "John", "Doe", "jdoe@ycp.edu");
+		userList.add(newUser);
 		return userList;
 	}
 }
