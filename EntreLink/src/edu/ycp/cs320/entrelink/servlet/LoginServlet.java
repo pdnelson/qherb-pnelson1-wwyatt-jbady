@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			String password = req.getParameter("passwordOfUser");
 			model.setEmail(email);
 			model.setPassword(password);
-			System.out.print(model.getEmail() + model.getPassword());
+			System.out.print(model.getEmail() + " - " + model.getPassword());
 
 			// check for errors in the form data before using is in a calculation
 			boolean isUser = controller.verifyUser();
@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 			// otherwise, log the user in
 			else {
 				model.setIsLoggedIn(true);
-				req.setAttribute("loggedInName", model.getUserFirstName() + " " + model.getUserLastName());
+				req.setAttribute("loggedInName", controller.getModel().getUserFirstName() + " " + controller.getModel().getUserLastName());
 			}
 		
 		// add result objects as attributes
