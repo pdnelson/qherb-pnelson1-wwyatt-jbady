@@ -38,17 +38,63 @@ public class LoginControllerTest {
 	public void testVerifyUserExists() {
 	
 		// tests that you can log in with email and password
+		
+		// John Doe
 		model.setPassword("ILikeRocks");
 		model.setEmail("jdoe@ycp.edu");
 		
 		controller.setModel(model);
 
 		assertTrue(controller.verifyUser());
+		
+		// Patrick Nelson
+		model.setPassword("toothbrush");
+		model.setEmail("pnelson1@ycp.edu");
+		
+		controller.setModel(model);
+
+		assertTrue(controller.verifyUser());
+		
+		// Jason Bady
+		model.setPassword("fingernail");
+		model.setEmail("jbady@ycp.edu");
+		
+		controller.setModel(model);
+
+		assertTrue(controller.verifyUser());
+		
+		// William Wyatt
+		model.setPassword("RockSalt");
+		model.setEmail("wwyatt@ycp.edu");
+		
+		controller.setModel(model);
+
+		assertTrue(controller.verifyUser());
+		
+		
+		// Quintin Herp
+		model.setPassword("3legs");
+		model.setEmail("qherb@ycp.edu");
+		
+		controller.setModel(model);
+
+		assertTrue(controller.verifyUser());
+		
+		
+		// Professor Hake
+		model.setPassword("BDConsultant");
+		model.setEmail("djhake@ycp.edu");
+		
+		controller.setModel(model);
+
+		assertTrue(controller.verifyUser());
+		
 	}
 	
 	@Test
 	public void testVerifyUserDoesNotExist() {
-		
+		controller.setModel(model);
+		assertFalse(controller.verifyUser());
 	}
 	
 	@Test
