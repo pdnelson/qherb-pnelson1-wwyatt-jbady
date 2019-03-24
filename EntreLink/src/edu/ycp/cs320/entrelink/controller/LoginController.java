@@ -12,10 +12,10 @@ public class LoginController {
 		//this.model.setUserLastName("Doe");
 	}
 	
-	public boolean verifyUser(String username, String email, String password) {
+	public boolean verifyUser(String usernameOrEmail, String password) {
 		System.out.println(model.getEmail());
-		if((model.getEmail().equals("jdoe@ycp.edu") || model.getUsername().equals("jdoe")) && model.getPassword().equals("ILikeRocks")) {
-			return true;
+		if(model.getEmail().equals(usernameOrEmail) || model.getUsername().equals(usernameOrEmail)) {
+			if (model.getPassword().equals(password)) return true;
 		}
 	return false;
 	}
