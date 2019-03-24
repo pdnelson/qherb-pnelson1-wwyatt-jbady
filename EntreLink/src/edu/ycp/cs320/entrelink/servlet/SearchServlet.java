@@ -14,7 +14,7 @@ public class SearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Project Servlet: doGet");
+		System.out.println("Search Servlet: doGet");
 		
 		req.getRequestDispatcher("/_view/search.jsp").forward(req, resp);
 	}	
