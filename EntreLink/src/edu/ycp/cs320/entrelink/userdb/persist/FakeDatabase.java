@@ -33,7 +33,7 @@ public class FakeDatabase implements IDatabase {
 	public User findUserByEmailOrUsername(String username) {
 		User result = new User();
 		for (User user : userList) {
-			if((user.getUsername() == username) || user.getEmail() == username){
+			if((user.getUsername().equals(username)) || user.getEmail().equals(username)){
 				result = user;
 			}
 		}
