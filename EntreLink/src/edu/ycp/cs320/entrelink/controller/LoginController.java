@@ -1,6 +1,11 @@
 package edu.ycp.cs320.entrelink.controller;
 
+import java.util.List;
+
 import edu.ycp.cs320.entrelink.model.User;
+import edu.ycp.cs320.entrelink.userdb.persist.DatabaseProvider;
+import edu.ycp.cs320.entrelink.userdb.persist.FakeDatabase;
+import edu.ycp.cs320.entrelink.userdb.persist.IDatabase;
 
 public class LoginController {
 	
@@ -8,14 +13,16 @@ public class LoginController {
 	
 	public void setModel(User model) {
 		this.model = model;
-		//this.model.setUserFirstName("John");
-		//this.model.setUserLastName("Doe");
 	}
 	
-	public boolean verifyUser(String usernameOrEmail, String password) {
-		System.out.println(model.getEmail());
-		if(model.getEmail().equals(usernameOrEmail) || model.getUsername().equals(usernameOrEmail)) {
-			if (model.getPassword().equals(password)) return true;
+	
+	IDatabase db = new FakeDatabase();
+	User getUser;
+	
+	public boolean verifyUser() {
+		getUser = db.findUserByEmailOrUsername(model.getEmail());
+		if(!getUser.equals(null)) {
+			if (getUser.getPassword().equals(model.getPassword())) return true;
 		}
 	return false;
 	}
