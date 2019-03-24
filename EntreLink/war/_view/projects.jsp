@@ -7,11 +7,11 @@
 	</head>
 
 	<body>
-	
-		<p>Projects</p>
-		<div id="description">
-			This is where projects will be found when implemented.
-		</div>
-		
+		<div id="content">
+			<p>Projects</p>
+			<div id="description">
+				This is where projects will be found when implemented.
+			</div>
+		</div>		
 	</body>
 </html>
