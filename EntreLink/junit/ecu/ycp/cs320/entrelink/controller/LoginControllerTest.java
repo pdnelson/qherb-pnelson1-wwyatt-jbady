@@ -35,6 +35,34 @@ public class LoginControllerTest {
 	}
 	
 	@Test
+	public void testVerifyUserExists() {
+		
+		// tests that you can log in with username and password
+		model.setPassword("ILikeRocks");
+		model.setEmail(null);
+		model.setUsername("jdoe");
+		
+		controller.setModel(model);
+		
+		assertTrue(controller.verifyUser("jdoe", "ILikeRocks"));
+		
+		
+		// tests that you can log in with email and password
+		model.setUsername(null);
+		model.setEmail("jdoe@ycp.edu");
+		
+		controller.setModel(model);
+
+		assertTrue(controller.verifyUser("jdoe@ycp.edu", "ILikeRocks"));
+		
+	}
+	
+	@Test
+	public void testVerifyUserDoesNotExist() {
+		
+	}
+	
+	@Test
 	public void testThatOneIsEqualToOne() {
 		assertTrue(1 == 1);
 	}
