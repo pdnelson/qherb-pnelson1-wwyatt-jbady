@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.print(model.getEmail() + model.getPassword());
 
 			// check for errors in the form data before using is in a calculation
-			boolean isUser = controller.verifyUser();
+			boolean isUser = controller.verifyUser(controller.getModel().getUsername(), controller.getModel().getEmail(), controller.getModel().getPassword());
 			System.out.println(isUser);
 			if(!isUser) {
 				errorMessage = "The username or password is incorrect.";
