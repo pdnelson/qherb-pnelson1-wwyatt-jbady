@@ -1,4 +1,4 @@
-package edu.ycp.cs320.userdb.persist;
+package edu.ycp.cs320.entrelink.userdb.persist;
 
 import java.io.IOException;
 import java.util.ArrayList;

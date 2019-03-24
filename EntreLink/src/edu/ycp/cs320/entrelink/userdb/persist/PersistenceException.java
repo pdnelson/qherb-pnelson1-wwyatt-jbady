@@ -1,4 +1,4 @@
-package edu.ycp.cs320.userdb.persist;
+package edu.ycp.cs320.entrelink.userdb.persist;
 
 public class PersistenceException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
