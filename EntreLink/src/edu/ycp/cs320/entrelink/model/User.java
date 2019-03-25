@@ -15,7 +15,7 @@ public class User {
 	private String website;
 	private String bio;
 	private String userType;
-	private ArrayList<Message> messages = new ArrayList<Message>();
+	private ArrayList<Message> messages;
 	
 	
 	
@@ -31,6 +31,7 @@ public class User {
 		this.email = email;
 		this.userId = userId;
 		this.userType = userType;
+		messages = new ArrayList<Message>();
 	}
 	
 	private void delMessage(int index) {
