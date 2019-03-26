@@ -15,8 +15,6 @@ public class Post {
 	private String postDescription;
 	private ArrayList<String> tags;
 	
-	public Post() {}
-	
 	public Post(User user, int timePosted, int postId, String postTitle, String postDescription, ArrayList<String> tags) {
 		// User-related fields
 		posterId = user.getUserId();
@@ -30,61 +28,70 @@ public class Post {
 		this.tags = tags;
 	}
 	
+	// Set and get for poster ID
 	public void setPosterId(int posterId) {
 		this.posterId = posterId;
 	}
-	
-	public void setName(String name) {
-		this.name = name;
+	public int getPosterId() {
+		return posterId;
 	}
-	
+
+	// Set and get for name
+	public void setName(String firstname, String lastname) {
+		name = firstname + " " + lastname;
+	}
+	public String getName() {
+		return name;
+	}
+
+	// Set and get for time posted
 	public void setTimePosted(int timePosted) {
 		this.timePosted = timePosted;
 	}
+	public int getTimePosted() {
+		return timePosted;
+	}
 	
+	// Set and get for post ID
 	public void setPostId(int postId) {
 		this.postId = postId;
 	}
+	public int getPostId() {
+		return postId;
+	}
 	
-	public void setPostTitle(String postTitle) {
+	// Set and get for post title
+	public void setTitle(String postTitle) {
 		this.postTitle = postTitle;
 	}
-	
-	public void setPostDescription(String postDescription) {
-		this.postDescription = postDescription;
+	public String getTitle() {
+		return postTitle;
 	}
 	
+	// Set and get for post description
+	public void setDescription(String description) {
+		postDescription = description;
+	}
+	public String getDescription() {
+		return postDescription;
+	}
+	
+	
+	// Everything that has to do with tags
 	public void setTags(ArrayList<String> tags) {
-		for (String tag : tags) {
-			this.tags.add(tag);
-		}
+		this.tags = tags;
+	}
+	public ArrayList<String> getTags() {
+		return tags;
+	}
+	public void addTags(ArrayList<String> tags) {
+		// TODO: add tags function
+		// Will take the new ArrayList and append it on to the old one
 	}
 	
-	public int getPosterId() {
-		return this.posterId;
+	public void removeTags(ArrayList<int[]> index) {
+		// TODO: add remove tags function
+		// Takes in an ArrayList of integers, and will remove the ArrayList elements of selected indexes
 	}
 	
-	public String getName() {
-		return this.name;
-	}
-	
-	public int getTimePosted() {
-		return this.timePosted;
-	}
-	
-	public int getPostId() {
-		return this.postId;
-	}
-	
-	public String getPostTitle() {
-		return this.postTitle;
-	}
-	
-	public String getPostDescription() {
-		return this.postDescription;
-	}
-	
-	public ArrayList<String> getTags(){
-		return this.tags;
-	}
 }
