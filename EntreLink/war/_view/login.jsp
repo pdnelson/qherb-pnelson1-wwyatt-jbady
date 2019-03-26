@@ -17,7 +17,7 @@
 		<form action="${pageContext.servletContext.contextPath}/login" method="post">
 			<!-- Super secret variable names so we don't get rekt by SQL injections :^) -->
 			<input type="text" name="emailAsUsername" size="12" value="${emailAsUsername}" /><br>
-			<input type="hidden" name="passwordOfUser" size="12" value="${passwordOfUser}" /><br>
+			<input type="password" name="passwordOfUser" size="12" value="${passwordOfUser}" /><br>
 			<input type="Submit" name="submitLoginData" value="Log in">
 		</form>
 
